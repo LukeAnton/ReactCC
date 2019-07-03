@@ -1,14 +1,44 @@
-foo = () => "bars";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-render() {
-  const name = "John Doe";
-  const loading = false;
-  const showName = true;
+class Navbar extends Component {
+  static defaultProps = {
+    title: "Github Finder",
+    icon: "fab fa-github"
+  };
 
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired
+  };
 
-  return (
-    <div className="App">
-      {loading ? <h4>Loading....</h4> : <h1>Hello {showName && name}</h1>}
-    </div>
-  );
+  render() {
+    return (
+      <nav className="navbar bg-primary">
+        <h1>
+          <i className={this.props.icon} /> {this.props.title}
+        </h1>
+      </nav>
+    );
+  }
 }
+
+export default Navbar;
+
+
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+class UserItem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      id: ""
+    };
+  }
+  render() {
+    return <div>User Item</div>;
+  }
+}
+
+export default UserItem;
